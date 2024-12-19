@@ -1,0 +1,21 @@
+package model;
+
+import jakarta.persistence.*;
+
+@Entity
+public class ParfumFragranceNote {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "parfum_id")
+    private Parfum parfum;
+
+    @ManyToOne
+    @JoinColumn(name = "fragrance_note_id")
+    private FragranceNote fragranceNote;
+
+    // Getter és setterek
+}
