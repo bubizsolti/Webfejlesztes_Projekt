@@ -16,23 +16,9 @@ public class ParfumController {
     @Autowired
     private ParfumRepository parfumRepository;
 
-    // A gender szűréshez új paramétereket adunk hozzá
-    @GetMapping("/parfums")
-    public List<Parfum> getAllParfums(@RequestParam(required = false) List<String> genders) {
-        if (genders == null || genders.isEmpty()) {
-            return parfumRepository.findAll();  // Ha nincs gender, akkor visszaadjuk az összes parfümöt
-        }
-
-        // Átalakítjuk a String típusú genders-t Parfum.Gender típusúvá
-        try {
-            List<Parfum.Gender> genderEnums = genders.stream()
-                    .map(gender -> Parfum.Gender.valueOf(gender.toUpperCase()))  // Enum értékek nagybetűs alakban
-                    .collect(Collectors.toList());
-
-            return parfumRepository.findByGenderIn(genderEnums);  // Ha van gender, akkor szűrünk
-        } catch (IllegalArgumentException e) {
-            // Hibás gender értékek kezelése
-            throw new IllegalArgumentException("Invalid gender value(s) provided. Valid values are FÉRFI, NŐI, UNISEX.");
-        }
+    @GetMapping("/")
+    public String index() {
+        return "index";  // Az `index.html` betöltése a `src/main/resources/templates` könyvtárból
     }
+
 }

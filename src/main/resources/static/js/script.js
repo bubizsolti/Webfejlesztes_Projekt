@@ -1,18 +1,18 @@
 document.addEventListener('DOMContentLoaded', function () {
     const parfumList = document.getElementById('parfumList');
     const applyFilterButton = document.getElementById('applyFilter');
-    const maleFilter = document.getElementById('maleFilter');
-    const femaleFilter = document.getElementById('femaleFilter');
+    const férfiFilter = document.getElementById('férfiFilter');
+    const nőiFilter = document.getElementById('nőiFilter');
     const unisexFilter = document.getElementById('unisexFilter');
 
     // Szűrés alkalmazása
     applyFilterButton.addEventListener('click', function() {
         const selectedGenders = [];
 
-        if (maleFilter.checked) {
+        if (férfiFilter.checked) {
             selectedGenders.push('FÉRFI');
         }
-        if (femaleFilter.checked) {
+        if (nőiFilter.checked) {
             selectedGenders.push('NŐI');
         }
         if (unisexFilter.checked) {
@@ -62,5 +62,5 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     // Alapértelmezett parfümök lekérése
-    fetchParfums(['MALE', 'FEMALE', 'UNISEX']);
+    fetchParfums(['FÉRFI', 'NŐI', 'UNISEX']);
 });
