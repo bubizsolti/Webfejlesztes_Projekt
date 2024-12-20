@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import parfumApp.Repository.*;
-import parfumApp.model.*;
+import parfumApp.Repository.ParfumRepository;
+import parfumApp.model.Parfum;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -24,10 +24,15 @@ public class ParfumController {
         }
 
         // Átalakítjuk a String típusú genders-t Parfum.Gender típusúvá
-        List<Parfum.Gender> genderEnums = genders.stream()
-                .map(gender -> Parfum.Gender.valueOf(gender.toUpperCase())) // Csak akkor működik, ha az enum megfelelően van beállítva
-                .collect(Collectors.toList());
+        try {
+            List<Parfum.Gender> genderEnums = genders.stream()
+                    .map(gender -> Parfum.Gender.valueOf(gender.toUpperCase()))  // Enum értékek nagybetűs alakban
+                    .collect(Collectors.toList());
 
-        return parfumRepository.findByGenderIn(genderEnums);  // Ha van gender, akkor szűrünk
+            return parfumRepository.findByGenderIn(genderEnums);  // Ha van gender, akkor szűrünk
+        } catch (IllegalArgumentException e) {
+            // Hibás gender értékek kezelése
+            throw new IllegalArgumentException("Invalid gender value(s) provided. Valid values are FÉRFI, NŐI, UNISEX.");
+        }
     }
 }
