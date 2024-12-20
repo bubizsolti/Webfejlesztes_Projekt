@@ -17,6 +17,6 @@ public class FragranceNote {
     @ManyToMany(mappedBy = "fragranceNotes")  // A kapcsolat a Parfum osztályban van kezelve
     private Set<Parfum> parfums;  // A parfümök listája, amelyekhez tartozik az illatjegy
 
-    
+
 }
 

@@ -1,8 +1,10 @@
 package model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
+@Data
 public class User {
 
     @Id
@@ -18,5 +20,6 @@ public class User {
     private String password;
 
     // Getter és setterek
+
 }
 

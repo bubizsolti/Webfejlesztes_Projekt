@@ -21,6 +21,8 @@ public class Parfum {
 
     private Double price;
 
+    private String description;  // Új mező a leírásnak
+
     @ManyToMany
     @JoinTable(
         name = "parfum_fragrance_note",   // Kapcsoló tábla neve
@@ -33,5 +35,4 @@ public class Parfum {
         MALE, FEMALE, UNISEX
     }
 
-    // Getterek és setterek
 }
