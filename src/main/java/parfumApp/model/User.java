@@ -1,4 +1,4 @@
-package model;
+package parfumApp.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -19,7 +19,6 @@ public class User {
 
     private String password;
 
-    // Getter és setterek
 
 }
 

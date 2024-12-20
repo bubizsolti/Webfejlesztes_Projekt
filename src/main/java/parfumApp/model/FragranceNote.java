@@ -1,4 +1,4 @@
-package model;
+package parfumApp.model;
 
 import jakarta.persistence.*;
 import java.util.Set;

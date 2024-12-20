@@ -1,7 +1,8 @@
-package Repository;
+package parfumApp.Repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import model.*;
+
+import parfumApp.model.*;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 }

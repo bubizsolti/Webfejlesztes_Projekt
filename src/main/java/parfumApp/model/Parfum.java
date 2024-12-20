@@ -1,4 +1,4 @@
-package model;
+package parfumApp.model;
 
 import jakarta.persistence.*;
 import java.util.Set;
@@ -17,11 +17,11 @@ public class Parfum {
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
-    private String imageUrl;
+    private String imageUrl = "No image available";
 
     private Double price;
 
-    private String description;  // Új mező a leírásnak
+    private String description = "No description available";  // Alapértelmezett leírás, ha nem adták meg
 
     @ManyToMany
     @JoinTable(
@@ -32,7 +32,7 @@ public class Parfum {
     private Set<FragranceNote> fragranceNotes;  // Az illatjegyek listája
 
     public enum Gender {
-        MALE, FEMALE, UNISEX
+        FÉRFI, NŐI, UNISEX
     }
 
 }

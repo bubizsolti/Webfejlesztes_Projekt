@@ -53,11 +53,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 <h3>${parfum.name}</h3>
                 <p>Price: ${parfum.price} Ft</p>
                 <p>Gender: ${parfum.gender}</p>
+                <p>Description: ${parfum.description || 'No description available'}</p>
             `;
 
             parfumList.appendChild(div);
         });
     }
+
 
     // Alapértelmezett parfümök lekérése
     fetchParfums(['MALE', 'FEMALE', 'UNISEX']);
