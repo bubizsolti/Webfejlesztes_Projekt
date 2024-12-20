@@ -4,28 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parfum Store</title>
-    <link rel="stylesheet" href="../static/css/styles.css">
+    <link rel="stylesheet" href="./../static/css/style.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Welcome to the Parfum Store</h1>
-        </header>
-        <div class="filter">
-            <h2>Filter by Gender</h2>
-            <div class="filter-options">
-                <label><input type="checkbox" class="gender-filter" id="FÉRFI"> Male</label>
-                <label><input type="checkbox" class="gender-filter" id="NŐI"> Female</label>
-                <label><input type="checkbox" class="gender-filter" id="UNISEX"> Unisex</label>
-            </div>
-            <button id="applyFilter">Apply Filter</button>
-        </div>
+    <h1>Welcome to the Parfum Store</h1>
 
-        <div class="parfum-list">
-            <ul id="parfumList"></ul>
+    <!-- Szűrő -->
+    <div class="filter">
+        <h2>Filter by Gender</h2>
+        <div class="filter-options">
+            <label>
+                <input type="checkbox" id="maleFilter"> Male
+            </label>
+            <label>
+                <input type="checkbox" id="femaleFilter"> Female
+            </label>
+            <label>
+                <input type="checkbox" id="unisexFilter"> Unisex
+            </label>
         </div>
+        <button id="applyFilter">Apply Filter</button>
     </div>
 
-    <script src="../static/js/app.js"></script>
+    <!-- Parfümök listája -->
+    <div id="parfumList" class="parfum-list">
+        <!-- A parfümök itt fognak megjelenni -->
+    </div>
+
+    <script src="../../static/js/script.js"></script>
 </body>
 </html>

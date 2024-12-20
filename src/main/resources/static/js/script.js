@@ -1,45 +1,64 @@
 document.addEventListener('DOMContentLoaded', function () {
     const parfumList = document.getElementById('parfumList');
     const applyFilterButton = document.getElementById('applyFilter');
-    const genderFilters = document.querySelectorAll('.gender-filter');
+    const maleFilter = document.getElementById('maleFilter');
+    const femaleFilter = document.getElementById('femaleFilter');
+    const unisexFilter = document.getElementById('unisexFilter');
 
-    // A parfümök adatai
-    const parfums = [
-        { name: "Whoosh", gender: "UNISEX", description: "Friss citrusos parfüm.", price: 32000 },
-        { name: "Valhalla", gender: "FÉRFI", description: "Erőteljes fás jegyekkel.", price: 36000 },
-        { name: "Queen of Chambord", gender: "NŐI", description: "Édes, csábító illat.", price: 32000 },
-        { name: "Sweet Darkness", gender: "UNISEX", description: "Intenzív dohány és balzsamos jegyek.", price: 36000 }
-    ];
+    // Szűrés alkalmazása
+    applyFilterButton.addEventListener('click', function() {
+        const selectedGenders = [];
+
+        if (maleFilter.checked) {
+            selectedGenders.push('FÉRFI');
+        }
+        if (femaleFilter.checked) {
+            selectedGenders.push('NŐI');
+        }
+        if (unisexFilter.checked) {
+            selectedGenders.push('UNISEX');
+        }
+
+        // Ha nem választottunk semmit, minden parfümöt mutatunk
+        if (selectedGenders.length === 0) {
+            selectedGenders.push('FÉRFI', 'NŐI', 'UNISEX');
+        }
+
+        // Kérjük le a parfümöket a szerverről a szűrők alapján
+        fetchParfums(selectedGenders);
+    });
+
+    // Parfümök lekérése a backendről
+    function fetchParfums(selectedGenders) {
+        // URL: API végpont
+        let url = '/parfums?genders=' + selectedGenders.join(',');
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                displayParfums(data);
+            })
+            .catch(error => console.error('Error fetching parfums:', error));
+    }
 
     // Parfümök megjelenítése
-    function displayParfums(filteredParfums) {
-        parfumList.innerHTML = '';
-        filteredParfums.forEach(parfum => {
-            const li = document.createElement('li');
-            li.innerHTML = `
+    function displayParfums(parfums) {
+        parfumList.innerHTML = '';  // Üresítsük ki a listát először
+
+        parfums.forEach(parfum => {
+            const div = document.createElement('div');
+            div.classList.add('parfum');
+
+            div.innerHTML = `
                 <h3>${parfum.name}</h3>
-                <p>${parfum.description}</p>
-                <p>Ár: ${parfum.price} Ft</p>
+                <p>Price: ${parfum.price} Ft</p>
+                <p>Gender: ${parfum.gender}</p>
             `;
-            parfumList.appendChild(li);
+
+            parfumList.appendChild(div);
         });
     }
 
-    // Szűrő alkalmazása
-    function applyFilter() {
-        const selectedGenders = Array.from(genderFilters)
-            .filter(input => input.checked)
-            .map(input => input.id.toUpperCase());
-
-        const filteredParfums = parfums.filter(parfum =>
-            selectedGenders.length === 0 || selectedGenders.includes(parfum.gender)
-        );
-
-        displayParfums(filteredParfums);
-    }
-
-    applyFilterButton.addEventListener('click', applyFilter);
-
-    // Alapértelmezett parfümök megjelenítése
-    displayParfums(parfums);
+    // Alapértelmezett parfümök lekérése
+    fetchParfums(['MALE', 'FEMALE', 'UNISEX']);
 });

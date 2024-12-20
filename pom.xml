@@ -72,6 +72,15 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.10.1</version> <!-- Friss verzió -->
+                <configuration>
+                    <source>21</source> <!-- Java verzió -->
+                    <target>21</target> <!-- Java verzió -->
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
