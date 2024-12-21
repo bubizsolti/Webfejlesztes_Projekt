@@ -20,8 +20,8 @@ public class Parfum {
 
     private Double price;
 
-    private String description = "No description available";  // Alapértelmezett leírás, ha nem adták meg
-
+    @Column(columnDefinition = "LONGTEXT")
+    private String description;
     /*@ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
         name = "parfum_fragrance_note",   // Kapcsoló tábla neve
