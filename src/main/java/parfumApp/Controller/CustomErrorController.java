@@ -12,5 +12,4 @@ public class CustomErrorController implements ErrorController {
         // Az error.html sablont visszaadja, amely a /src/main/resources/templates mappában található
         return "error";  // Itt a "error" a Thymeleaf sablon neve
     }
-
 }

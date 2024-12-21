@@ -1,7 +1,6 @@
 package parfumApp.model;
 
 import jakarta.persistence.*;
-import java.util.Set;
 import lombok.Data;
 
 @Entity
@@ -23,16 +22,16 @@ public class Parfum {
 
     private String description = "No description available";  // Alapértelmezett leírás, ha nem adták meg
 
-    @ManyToMany
+    /*@ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
         name = "parfum_fragrance_note",   // Kapcsoló tábla neve
         joinColumns = @JoinColumn(name = "parfum_id"),   // Parfüm ID
         inverseJoinColumns = @JoinColumn(name = "fragrance_note_id")  // Illatjegy ID
     )
     private Set<FragranceNote> fragranceNotes;  // Az illatjegyek listája
-
+*/
     public enum Gender {
-        FÉRFI, NŐI, UNISEX
+        FÉRFI, NŐI, UNISEX;
     }
 
 }
