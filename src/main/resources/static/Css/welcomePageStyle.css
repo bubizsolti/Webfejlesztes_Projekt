@@ -13,14 +13,14 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background: linear-gradient(135deg, #f7f8fc, #e8eaf6);
+    background: linear-gradient(135deg, #666768, #302f2f);
     color: #333;
 }
 
 h1 {
     font-size: 3rem;
     margin-bottom: 30px;
-    color: #4a4a4a;
+    color: #ffffff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
