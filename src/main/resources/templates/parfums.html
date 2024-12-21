@@ -8,31 +8,23 @@
 </head>
 <body>
     <div class="container">
-        <!-- Főcím -->
         <header class="header">
             <h1>Termékeink</h1>
         </header>
 
-        <!-- Szűrők -->
-        <div class="filters">
-            <label>
-                <input type="checkbox" id="férfiFilter"> Férfi
-            </label>
-            <label>
-                <input type="checkbox" id="nőiFilter"> Női
-            </label>
-            <label>
-                <input type="checkbox" id="unisexFilter"> Unisex
-            </label>
-            <button id="applyFilter" class="button">Szűrés alkalmazása</button>
+        <!-- Üzenet, ha nincsenek parfümök -->
+        <div th:if="${message}">
+            <p th:text="${message}"></p>
         </div>
 
         <!-- Parfüm lista -->
         <div id="parfumList" class="parfum-list">
-            <!-- Parfümök dinamikusan kerülnek ide -->
+            <div th:each="parfum : ${parfums}" class="parfum">
+                <h3 th:text="${parfum.name}"></h3>
+                <p><span th:text="${parfum.gender}"></span></p>
+                <p>Ár: <span th:text="${parfum.price}"></span> Ft</p>
+            </div>
         </div>
     </div>
-
-    <script src="/JS/script.js"></script>
 </body>
 </html>
