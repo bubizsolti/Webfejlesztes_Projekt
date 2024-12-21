@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 parfumList.innerHTML = '<p>Hiba történt a parfümök lekérése közben. Kérjük, próbálja újra később.</p>';
             });
     }
-    
+
 
     // Parfümök megjelenítése
     function displayParfums(parfums) {
