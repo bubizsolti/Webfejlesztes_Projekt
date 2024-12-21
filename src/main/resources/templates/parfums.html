@@ -12,19 +12,54 @@
             <h1>Termékeink</h1>
         </header>
 
-        <!-- Üzenet, ha nincsenek parfümök -->
-        <div th:if="${message}">
-            <p th:text="${message}"></p>
-        </div>
+        <!-- Navigációs gombok -->
+        <nav class="filter-buttons">
+            <a href="#" class="filter-button" onclick="filterParfums('all')">Összes</a>
+            <a href="#" class="filter-button" onclick="filterParfums('férfi')">Férfi</a>
+            <a href="#" class="filter-button" onclick="filterParfums('női')">Női</a>
+            <a href="#" class="filter-button" onclick="filterParfums('unisex')">Unisex</a>
+        </nav>
 
         <!-- Parfüm lista -->
-        <div id="parfumList" class="parfum-list">
-            <div th:each="parfum : ${parfums}" class="parfum">
-                <h3 th:text="${parfum.name}"></h3>
-                <p><span th:text="${parfum.gender}"></span></p>
-                <p>Ár: <span th:text="${parfum.price}"></span> Ft</p>
-            </div>
+        <div th:each="parfum : ${parfums}" th:id="parfum.id" class="parfum" 
+            th:data-gender="${parfum.gender.toString().toLowerCase()}">
+            <h3 th:text="${parfum.name}"></h3>
+            <p>Nem: <span th:text="${parfum.gender}"></span></p>
+            <p>Ár: <span th:text="${T(java.lang.Math).round(parfum.price)}"></span> Ft</p>
         </div>
+
     </div>
+
+    <script>
+        // Funkció a parfümök szűrésére
+        function filterParfums(gender) {
+            // Minden parfüm elem
+            var parfums = document.querySelectorAll('.parfum');
+            
+            // Ha 'all', akkor minden parfüm látható
+            if (gender === 'all') {
+                parfums.forEach(function(parfum) {
+                    parfum.style.display = 'block';
+                });
+            } else {
+                // Szűrés a nemek alapján
+                parfums.forEach(function(parfum) {
+                    var parfumGender = parfum.getAttribute('data-gender').toLowerCase();  // Itt lekérjük a data-gender attribútumot
+                    if (parfumGender === gender) {
+                        parfum.style.display = 'block'; // Megjeleníti
+                    } else {
+                        parfum.style.display = 'none';  // Elrejti
+                    }
+                });
+            }
+        }
+        
+        // Alapértelmezett: összes parfüm megjelenítése
+        document.addEventListener('DOMContentLoaded', function() {
+            filterParfums('all');
+        });
+        
+
+    </script>
 </body>
 </html>
