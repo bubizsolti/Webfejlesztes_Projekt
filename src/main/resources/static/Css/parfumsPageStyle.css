@@ -1,16 +1,16 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f7f7f7;
+    background-color: #f5f1e6; /* Krémszín */
     color: #333;
 }
 
 .container {
-    max-width: 800px;
+    max-width: 900px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -19,78 +19,75 @@ h1 {
     text-align: center;
     color: #333;
     margin-bottom: 20px;
+    font-size: 2rem;
+    font-weight: bold;
 }
 
 /* Navigáció gombok stílusa */
 .filter-buttons {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 15px;
     margin-bottom: 20px;
 }
 
 .filter-button {
     text-decoration: none;
-    background-color: #4CAF50;
+    background-color: #6c757d; /* Sötét szürke */
     color: white;
-    padding: 10px 15px;
-    border-radius: 5px;
+    padding: 10px 20px;
+    border-radius: 8px;
     font-size: 1rem;
     font-weight: bold;
     text-align: center;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease-in-out;
 }
 
 .filter-button:hover {
-    background-color: #45a049;
+    background-color: #495057; /* Még sötétebb szürke */
 }
 
-/* Üzenet stílusa */
-.message {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 1.2rem;
-    color: #666;
-}
-
-/* Parfümök megjelenítése */
+/* Parfümök gombként */
 .parfum {
-    margin-bottom: 15px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    background-color: #fafafa;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background-color: #fdfdfd;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.parfum:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
 .parfum h3 {
     margin: 0;
     font-size: 1.2rem;
-    color: #444;
+    color: #333;
+    font-weight: bold;
 }
 
 .parfum p {
     margin: 5px 0;
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: #666;
 }
 
-.parfum-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+/* Klikkelés után ne változzon a szín */
+.parfum a:visited {
+    color: #333;
 }
 
 /* Reszponzív kialakítás */
 @media screen and (max-width: 600px) {
     .container {
         padding: 10px;
-    }
-
-    .parfum {
-        padding: 8px;
     }
 
     .filter-buttons {
@@ -101,6 +98,10 @@ h1 {
     .filter-button {
         width: 100%;
         text-align: center;
+        padding: 10px;
+    }
+
+    .parfum {
         padding: 10px;
     }
 }

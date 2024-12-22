@@ -21,13 +21,14 @@
         </nav>
 
         <!-- Parfüm lista -->
-        <div th:each="parfum : ${parfums}" th:id="parfum.id" class="parfum" 
+        <div th:each="parfum : ${parfums}" th:id="parfum.id" class="parfum"
             th:data-gender="${parfum.gender.toString().toLowerCase()}">
-            <h3 th:text="${parfum.name}"></h3>
+            <h3>
+                <a th:href="@{/parfum/{id}(id=${parfum.id})}" th:text="${parfum.name}"></a>
+            </h3>
             <p>Nem: <span th:text="${parfum.gender}"></span></p>
             <p>Ár: <span th:text="${T(java.lang.Math).round(parfum.price)}"></span> Ft</p>
         </div>
-
     </div>
 
     <!-- A különálló JavaScript fájl betöltése -->

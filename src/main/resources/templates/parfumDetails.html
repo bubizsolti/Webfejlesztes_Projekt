@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parfüm részletei</title>
+    <link rel="stylesheet" href="/Css/parfumDetails.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 th:text="${parfum.name}"></h1>
+        </header>
+        <div class="parfum-details">
+            <div class="image">
+                <img th:src="@{${parfum.imageUrl}}" alt="Parfüm képe">
+            </div>
+            <div class="info">
+                <p><strong>Nem:</strong> <span th:text="${parfum.gender}"></span></p>
+                <p><strong>Ár:</strong> <span th:text="${T(java.lang.Math).round(parfum.price)}"></span> Ft</p>
+                <p><strong>Leírás:</strong></p>
+                <p th:text="${parfum.description}"></p>
+            </div>
+        </div>
+        <footer>
+            <a href="/parfums" class="back-link">Vissza a termékekhez</a>
+        </footer>
+    </div>
+</body>
+</html>

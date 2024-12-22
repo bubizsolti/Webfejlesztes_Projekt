@@ -1,0 +1,86 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f1e6; /* Krémszínű háttér */
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 2rem;
+    color: #444;
+}
+
+.parfum-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.image img {
+    width: 250px; /* Fixált szélesség a képnek */
+    height: auto; /* Megőrzi az arányokat */
+    border-radius: 8px;
+    border: 2px solid #ddd;
+}
+
+.info {
+    max-width: 450px;
+    padding: 15px;
+    background-color: #fdfdfd;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.info p {
+    font-size: 1.1rem;
+    margin: 10px 0;
+    color: #555;
+}
+
+.info p strong {
+    color: #333;
+}
+
+.info p span {
+    font-size: 1.2rem; /* Árak kiemelése */
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.back-link {
+    text-decoration: none;
+    color: white;
+    background-color: #4CAF50;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.back-link:hover {
+    background-color: #45a049;
+}
+
+
