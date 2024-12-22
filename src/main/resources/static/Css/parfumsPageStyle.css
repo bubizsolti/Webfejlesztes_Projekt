@@ -33,7 +33,7 @@ h1 {
 
 .filter-button {
     text-decoration: none;
-    background-color: #6c757d; /* Sötét szürke */
+    background-color: #4CAF50;
     color: white;
     padding: 10px 20px;
     border-radius: 8px;
@@ -44,7 +44,7 @@ h1 {
 }
 
 .filter-button:hover {
-    background-color: #495057; /* Még sötétebb szürke */
+    background-color: #45a049; /* Még sötétebb szürke */
 }
 
 /* Parfümök gombként */

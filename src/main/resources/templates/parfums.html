@@ -9,29 +9,23 @@
 <body>
     <div class="container">
         <header class="header">
-            <h1>Termékeink</h1>
+            <h1>Superz.</h1>
         </header>
-
-        <!-- Navigációs gombok -->
         <nav class="filter-buttons">
-            <a href="#" class="filter-button" onclick="filterParfums('all')">Összes</a>
+            <a href="#" class="filter-button" onclick="filterParfums('all')">Mind</a>
             <a href="#" class="filter-button" onclick="filterParfums('férfi')">Férfi</a>
             <a href="#" class="filter-button" onclick="filterParfums('női')">Női</a>
             <a href="#" class="filter-button" onclick="filterParfums('unisex')">Unisex</a>
         </nav>
-
-        <!-- Parfüm lista -->
         <div th:each="parfum : ${parfums}" th:id="parfum.id" class="parfum"
             th:data-gender="${parfum.gender.toString().toLowerCase()}">
             <h3>
                 <a th:href="@{/parfum/{id}(id=${parfum.id})}" th:text="${parfum.name}"></a>
             </h3>
-            <p>Nem: <span th:text="${parfum.gender}"></span></p>
-            <p>Ár: <span th:text="${T(java.lang.Math).round(parfum.price)}"></span> Ft</p>
+            <p><strong></strong> <span th:text="${#strings.capitalize(parfum.gender.name().toLowerCase())}"></span></p>
+            <p><span th:text="${T(java.lang.Math).round(parfum.price)}"></span> Ft</p>
         </div>
     </div>
-
-    <!-- A különálló JavaScript fájl betöltése -->
     <script src="JS/parfumFilter.js"></script>
 </body>
 </html>
