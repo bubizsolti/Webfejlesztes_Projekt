@@ -9,6 +9,6 @@ public class WelcomePageController {
     // Kezdőlap kiszolgálása
     @GetMapping("/")
     public String index() {
-        return "index"; // Az "index.html" sablont tölti be
+        return "index";
     }
 }
